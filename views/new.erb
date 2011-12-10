@@ -1,0 +1,14 @@
+<div class="entry">
+  <form action="/" method="POST">
+    <p><label for="body">Entry:</label><br />
+    <input type="text" name="body" id="body" /></p>
+    <input type="submit" value="Save" />
+  </form>
+  <table>
+    <% Entry.all(:order => [:created_at.desc]).first(10).each do |entry| %>
+      <tr><td><a href="/<%= entry.id %>"><%= entry.id %></a>
+      <td><%= entry.created_at %></td><td><%= entry.body %></td></tr>
+    <% end %>
+  </table>
+
+</div>
