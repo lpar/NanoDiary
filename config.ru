@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'sinatra'
-require 'nanodiary'
+require './nanodiary'
 
 run NanoDiary.new
 # run Sinatra::Application

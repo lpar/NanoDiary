@@ -1,0 +1,6 @@
+[<% Entry.all(:order => [:created_at.desc]).first(10).each do |entry| %>
+  { id: <%= entry.id %>,
+    created_at: <%= entry.created_at.to_json %>, 
+    body: <%= entry.body.to_json %>
+  }<% end %>
+]
