@@ -25,5 +25,9 @@ like this:
     Options +FollowSymLinks +ExecCGI
     RewriteRule ^(.*)$ dispatch.fcgi [QSA,L]
 
+Once you've got the server side running, there's a trivial RestClient-based 
+command-line client in clients/nd. The server provides plain text and JSON APIs
+as well as the web UI.
+
 Yes, this is a trivial project. I was surprised I couldn't find something much
 better already out there.
