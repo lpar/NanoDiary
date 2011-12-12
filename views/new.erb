@@ -1,14 +1,18 @@
-<div class="entry">
-  <form action="/" method="POST">
-    <p><label for="body">Entry:</label><br />
-    <input type="text" name="body" id="body" /></p>
-    <input type="submit" value="Save" />
-  </form>
-  <table>
-    <% Entry.all(:order => [:created_at.desc]).first(10).each do |entry| %>
-      <tr><td><a href="/<%= entry.id %>"><%= entry.id %></a>
-      <td><%= entry.created_at %></td><td><%= entry.body %></td></tr>
-    <% end %>
-  </table>
-
-</div>
+<form action="/" method="POST">
+  <fieldset>
+    <legend>New</legend>
+    <label for="body">New entry:</label>
+    <textarea id="body" name="body" tabindex="0"></textarea>
+    <div class="submit"><button type="submit">Save</botton></div>
+  </fieldset>
+</form>
+<table>
+  <caption>Recent</caption>
+  <% Entry.all(:order => [:created_at.desc]).first(10).each do |entry| %>
+    <tr>
+      <td class="tdate"><%= entry.created_at.relative %></td>
+      <td><%= entry.body %></td>
+      <td class="tedit"><a href="/<%= entry.id %>">»</a></td>
+    </tr>
+  <% end %>
+</table>

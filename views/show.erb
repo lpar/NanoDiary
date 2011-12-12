@@ -1,8 +1,5 @@
 <div class="entry">
-  <p><div class="edate" id="edate">
-    <%= @entry.created_at.iso8601 %>
-    </div>&nbsp;<div class="ebody">
-    <%= @entry.body %>
-  </div></p>
-  <a href="/">Add another</a>
+  <div class="edate" id="created"><%= @entry.created_at.iso8601 %></div>
+  <p class="ebody"><%= @entry.body %></p>
+  <a href="/">«</a>
 </div>
