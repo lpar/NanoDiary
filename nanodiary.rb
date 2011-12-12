@@ -45,13 +45,14 @@ class NanoDiary < Sinatra::Application
     send_file 'nanodiary.css'
   end
 
-  get '/', :provides => :json do
-    erb 'json/recent', :content_type => "application/json", :layout => false
-  end
-
   get '/' do
     pass unless request.accept? 'text/html'
     erb :index, :type => :html
+  end
+
+  get '/', :provides => :json do
+    pass unless request.accept? 'application/json'
+    erb 'json/recent', :content_type => "application/json", :layout => false
   end
 
   get '/', :provides => :text do
