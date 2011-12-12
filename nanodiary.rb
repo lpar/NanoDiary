@@ -47,7 +47,9 @@ class NanoDiary < Sinatra::Application
   end
 
   post '/' do
-    @entry = Entry.new(:body => params[:body])
+    # I live in -0600, hence this ugly hack
+    @entry = Entry.new(:body => params[:body], 
+                       :created_at => DateTime.now.new_offset(-0.25))
     @entry.save
     redirect '/'
   end
