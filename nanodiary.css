@@ -31,6 +31,7 @@ input, textarea {
   border:1px solid #111;
   background:#282828;
   color:#fff;
+  font-size: medium;
 }		
 textarea {
   height:2li;
@@ -56,3 +57,4 @@ a { text-decoration: none; color: #5aae00; }
 .entry { padding: 10px; }
 .edate { font-size: small; color: #888; }
 .ebody { padding: 0; }
+td { vertical-align: top; }

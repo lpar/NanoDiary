@@ -1,1 +1,4 @@
 nd.sqlite3
+.htaccess
+.htpasswd
+Gemfile.lock
