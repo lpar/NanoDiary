@@ -12,7 +12,7 @@
     <tr>
       <td class="tdate"><%= entry.created_at.relative %></td>
       <td><%= entry.body %></td>
-      <td class="tedit"><a href="/<%= entry.id %>">»</a></td>
+      <td class="tedit"><a href="/entry/<%= entry.id %>">»</a></td>
     </tr>
   <% end %>
 </table>

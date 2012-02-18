@@ -45,6 +45,15 @@ class NanoDiary < Sinatra::Application
     send_file 'nanodiary.css'
   end
 
+  get '/entry/:id' do
+    @entry = Entry.get(params[:id])
+    if @entry
+      erb :entry
+    else
+      redirect '/'
+    end
+  end
+
   get '/' do
     pass unless request.accept? 'text/html'
     erb :index, :type => :html
@@ -105,15 +114,6 @@ class NanoDiary < Sinatra::Application
     entry = Entry.new(:body => request.body.read)
     entry.save
     [200, 'Saved']
-  end
-
-  get '/:id' do
-    @entry = Entry.get(params[:id])
-    if @entry
-      erb :entry
-    else
-      redirect '/'
-    end
   end
 
 end
