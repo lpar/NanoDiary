@@ -14,6 +14,7 @@ class DateTime
   def relative(other = DateTime.now)
     days = other - self
     secs = (86400*days).to_i
+    days = days.to_i
     return "#{secs}s" if secs < 60
     min = secs/60
     return "#{min}m" if min < 60
