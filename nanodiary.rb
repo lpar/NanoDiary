@@ -6,22 +6,23 @@ require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-migrations'
 require 'json'
+require 'date'
 
 TYPES = %w[application/json text/html]
 
 class DateTime
-  def relative
-    secs = (60400*(DateTime.now - self)).to_i
+  def relative(other = DateTime.now)
+    days = other - self
+    secs = (86400*days).to_i
     return "#{secs}s" if secs < 60
     min = secs/60
     return "#{min}m" if min < 60
     hr = min/60
     return "#{hr}h" if hr < 24
-    day = hr/24
-    return "#{day}d" if day < 14
-    wks = day / 7
+    return "#{days}d" if days < 14
+    wks = days / 7
     return "#{wks}w" if wks < 5
-    mon = (day / 30.41).to_i
+    mon = (days / 30.41).to_i
     return "#{mon}M" if mon < 12
     return "#{(day/365.25).to_i}y"
   end
