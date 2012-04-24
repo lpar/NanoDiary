@@ -1,5 +1,5 @@
 <div class="entry">
-  <div class="edate" id="created"><%= @entry.created_at.iso8601 %></div>
+  <div class="edate" id="created"><%= @entry.created_at.strftime('%FT%T%:z') %></div>
   <p class="ebody"><%= @entry.body %></p>
   <a href="/">«</a>
 </div>
